@@ -1,0 +1,12 @@
+body {
+	padding: 0;
+	background-color: #111;
+}
+ 
+#window {
+	position: relative;
+	margin: auto;
+	border: 4px solid #333333;
+	width: 800px;
+	height: 600px;
+}
