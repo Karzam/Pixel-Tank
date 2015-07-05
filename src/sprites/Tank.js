@@ -13,7 +13,7 @@ Tank = function(sprite, x, y) {
     // Vitesse des bombes 
     this.bombSpeed = 400;
     // Points de vie 
-    this.life = 7;
+    this.life = 3;
     // Bonus 
     this.bonusTimerBomb = false;
     this.bonusSpeed = false;
@@ -91,7 +91,7 @@ Tank.prototype.damage = function() {
     if (!this.bonusShield) {
         this.life --;
         this.play('damage', 40, false);
-        hud.life.play('life' + this.life);
+        hud.removeLife();
     }
 
     // Si points de vie à 0, destruction
@@ -100,6 +100,6 @@ Tank.prototype.damage = function() {
         explosion.scale.x = 2;
         explosion.scale.y = 2;
         this.kill();
-        gameManager.isLose = true;
+        levelManager.isLose = true;
     }
 }

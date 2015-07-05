@@ -12,46 +12,46 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'window', { preload: preload
 
 // Chargement des assets 
 function preload() {
-    game.load.image('title', 'assets/title.jpg');
+    game.load.image('title', 'assets/sprites/ui/title.jpg');
     game.load.bitmapFont('carrier_command', 'assets/fonts/carrier_command.png', 'assets/fonts/carrier_command.xml');
     game.load.bitmapFont('carrier_command_black', 'assets/fonts/carrier_command_black.png', 'assets/fonts/carrier_command_black.xml');
-    game.load.image('selectWorld', 'assets/selectWorld.jpg');
-    game.load.image('selectLevel', 'assets/selectLevel.jpg');
-    game.load.image('win', 'assets/win.jpg');
-    game.load.image('lose', 'assets/lose.jpg');
-    game.load.image('help', 'assets/help.jpg');
-    game.load.image('multiplayer', 'assets/multiplayer.jpg');
-    game.load.image('btnSettings', 'assets/btnSettings.png');
-    game.load.image('btnShop', 'assets/btnShop.png');
-    game.load.spritesheet('bg_button_large', 'assets/bg_button_large.png', 241, 75, 2);
-    game.load.spritesheet('bg_button_medium', 'assets/bg_button_medium.png', 102, 102, 2);
-    game.load.spritesheet('bg_button_small', 'assets/bg_button_small.png', 62, 62, 2);
-    game.load.image('btnReturnSelect', 'assets/btnReturnSelect.png');
-    game.load.image('btnHelp', 'assets/btnHelp.png');
-    game.load.image('btnRestartLevel', 'assets/btnRestartLevel.png');
-    game.load.image('bgHud', 'assets/hud.jpg');
-    game.load.spritesheet('life', 'assets/life.png', 132, 30, 8);
-    game.load.image('txtLife', 'assets/txtLife.png');
-    game.load.image('txtBonus', 'assets/txtBonus.png');
-    game.load.image('backgroundDesert', 'assets/backgroundDesert.png');
-    game.load.image('bloc', 'assets/bloc.png'); 
-    game.load.spritesheet('tank1', 'assets/tank1.png', 32, 32, 5);
-    game.load.spritesheet('enemyRegular_base', 'assets/enemyRegular_base.png', 32, 32, 5);
-    game.load.spritesheet('enemyRegular_gun', 'assets/enemyRegular_gun.png', 32, 32, 5);
-    game.load.spritesheet('enemyTriple_base', 'assets/enemyTriple_base.png', 32, 32, 5);
-    game.load.spritesheet('enemyTriple_gun', 'assets/enemyTriple_gun.png', 32, 32, 5);
-    game.load.spritesheet('enemySniper_base', 'assets/enemySniper_base.png', 32, 32, 5);
-    game.load.spritesheet('enemySniper_gun', 'assets/enemySniper_gun.png', 32, 32, 5);
-    game.load.spritesheet('bossSand_base', 'assets/bossSand_base.png', 128, 48, 5);
-    game.load.spritesheet('bossSand_gun', 'assets/bossSand_gun.png', 32, 32, 5);
-    game.load.image('bomb', 'assets/bomb.png');
-    game.load.spritesheet('explosion', 'assets/explosion.png', 42, 42, 7);
-    game.load.image('bonusTimerBomb', 'assets/bonusTimerBomb.png');
-    game.load.image('bonusSpeed', 'assets/bonusSpeed.png');
-    game.load.image('bonusLife', 'assets/bonusLife.png');
-    game.load.image('bonusShield', 'assets/bonusShield.png');
-    game.load.image('shield', 'assets/shield.png');
-    game.load.image('bonusTimeIdle', 'assets/bonusTimeIdle.png');
+    game.load.image('select_world', 'assets/sprites/ui/select_world.jpg');
+    game.load.image('select_level', 'assets/sprites/ui/select_level.jpg');
+    game.load.image('win', 'assets/sprites/ui/win.jpg');
+    game.load.image('lose', 'assets/sprites/ui/lose.jpg');
+    game.load.image('help', 'assets/sprites/ui/help.jpg');
+    game.load.image('multiplayer', 'assets/sprites/ui/multiplayer.jpg');
+    game.load.image('btn_settings', 'assets/sprites/ui/btn_settings.png');
+    game.load.image('btn_shop', 'assets/sprites/ui/btn_shop.png');
+    game.load.spritesheet('bg_button_large', 'assets/sprites/ui/bg_button_large.png', 241, 75, 2);
+    game.load.spritesheet('bg_button_medium', 'assets/sprites/ui/bg_button_medium.png', 102, 102, 2);
+    game.load.spritesheet('bg_button_small', 'assets/sprites/ui/bg_button_small.png', 62, 62, 2);
+    game.load.image('btn_return_select', 'assets/sprites/ui/btn_returnSelect.png');
+    game.load.image('btn_help', 'assets/sprites/ui/btn_help.png');
+    game.load.image('btn_restart_level', 'assets/sprites/ui/btn_restartLevel.png');
+    game.load.image('life', 'assets/sprites/ui/life.png');
+    game.load.image('txt_life', 'assets/sprites/ui/txtLife.png');
+    game.load.image('background_desert', 'assets/sprites/backgrounds/background_desert.png');
+    game.load.image('bloc_desert_1', 'assets/sprites/level/bloc_desert_1.png'); 
+    game.load.image('bloc_desert_2', 'assets/sprites/level/bloc_desert_2.png'); 
+    game.load.image('bloc_desert_3', 'assets/sprites/level/bloc_desert_3.png'); 
+    game.load.spritesheet('tank_1', 'assets/sprites/level/tank_1.png', 32, 32, 5);
+    game.load.spritesheet('enemy_regular_base', 'assets/sprites/level/enemy_regular_base.png', 32, 32, 5);
+    game.load.spritesheet('enemy_regular_gun', 'assets/sprites/level/enemy_regular_gun.png', 32, 32, 5);
+    game.load.spritesheet('enemy_triple_base', 'assets/sprites/level/enemy_triple_base.png', 32, 32, 5);
+    game.load.spritesheet('enemy_triple_gun', 'assets/sprites/level/enemy_triple_gun.png', 32, 32, 5);
+    game.load.spritesheet('enemy_sniper_base', 'assets/sprites/level/enemy_sniper_base.png', 32, 32, 5);
+    game.load.spritesheet('enemy_sniper_gun', 'assets/sprites/level/enemy_sniper_gun.png', 32, 32, 5);
+    game.load.spritesheet('boss_sand_base', 'assets/sprites/level/boss_sand_base.png', 128, 48, 5);
+    game.load.spritesheet('boss_sand_gun', 'assets/sprites/level/boss_sand_gun.png', 32, 32, 5);
+    game.load.image('bomb', 'assets/sprites/level/bomb.png');
+    game.load.spritesheet('explosion', 'assets/sprites/level/explosion.png', 42, 42, 7);
+    game.load.image('bonus_timerbomb', 'assets/sprites/level/bonus_timerbomb.png');
+    game.load.image('bonus_speed', 'assets/sprites/level/bonus_speed.png');
+    game.load.image('bonus_life', 'assets/sprites/level/bonus_life.png');
+    game.load.image('bonus_shield', 'assets/sprites/level/bonus_shield.png');
+    game.load.image('shield', 'assets/sprites/level/shield.png');
+    game.load.image('bonus_timeidle', 'assets/sprites/level/bonus_timeidle.png');
 }
 
 // Initialisation 
@@ -66,6 +66,7 @@ function create() {
 function update() {
 
     if (gameManager != null) {
+
         gameManager.update();
     }
 }

@@ -1,6 +1,6 @@
 BonusLife = function(x, y) {
     
-    Phaser.Sprite.call(this, game, x, y, 'bonusLife');
+    Phaser.Sprite.call(this, game, x, y, 'bonus_life');
     this.anchor.setTo(0.5, 0.5);
     game.physics.enable(this, Phaser.Physics.ARCADE);
     this.body.immovable = true;
@@ -23,7 +23,8 @@ BonusLife.prototype.collisionTank = function() {
 
     if (tank1.life < 3) {
         tank1.life ++;
-        hud.life.play('life' + tank1.life);
+        hud.addLife();
     }
+
     this.destroy();
 }

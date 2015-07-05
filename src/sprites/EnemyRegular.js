@@ -1,7 +1,7 @@
 /* global Phaser */
 EnemyRegular = function(x, y) {
 
-    Phaser.Sprite.call(this, game, x, y, 'enemyRegular_base');
+    Phaser.Sprite.call(this, game, x, y, 'enemy_regular_base');
     this.width = 32;
     this.height = 32;
     this.anchor.setTo(0.5, 0.5);
@@ -18,7 +18,7 @@ EnemyRegular = function(x, y) {
     this.body.immovable = true;
     game.add.existing(this);
     // Ajout du canon
-    this.gun = new Gun(this.x, this.y, 'enemyRegular_gun', 0); 
+    this.gun = new Gun(this.x, this.y, 'enemy_regular_gun', 0); 
     enemies.add(this);
     // Animations de base 
     this.animations.add('static', [0]);

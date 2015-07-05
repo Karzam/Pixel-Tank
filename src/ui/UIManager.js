@@ -3,10 +3,6 @@ UIManager = function() {
 	gameManager = null;
 	// Screen en cours d'affichage 
 	this.currentScreen = null;
-	// Monde sélectionné 
-	this.worldSelected = null;
-	// Level sélectionné 
-	this.levelSelected = null;
 }
 
 UIManager.prototype = Object.create(Phaser.Sprite.prototype);
@@ -20,6 +16,7 @@ UIManager.prototype.create = function() {
 // Affichage de screen
 UIManager.prototype.openScreen = function(Screen) {
 
+	// Ferme l'écran précédent 
 	if (this.currentScreen != null) this.closeScreen();
 	this.currentScreen = new Screen();
 	this.currentScreen.create();
@@ -30,13 +27,16 @@ UIManager.prototype.closeScreen = function() {
 
 	for (var i = 0; i < this.currentScreen.list.length; i++) {
 		this.currentScreen.list[i].destroy();
+		// Efface le texte des boutons 
+		if (this.currentScreen.list[i].displayedText) {
+			this.currentScreen.list[i].displayedText.destroy();
+		} 
 	}
 }
 
 // Titlescreen
 UIManager.prototype.displayTitle = function() {
 
-	this.closeScreen();
 	this.openScreen(TitleScreen);
 }
 
@@ -49,40 +49,40 @@ UIManager.prototype.displayWebsite = function() {
 // Multiplayer 
 UIManager.prototype.displayMultiplayer = function() {
 
-	this.closeScreen();
 	this.openScreen(MultiplayerScreen);
 }
 
 // Screen de sélection de monde  
 UIManager.prototype.displaySelectWorld = function() {
 
-	this.closeScreen();
 	this.openScreen(SelectWorldScreen);
 }
 
 // Screen de sélection de level  
 UIManager.prototype.displaySelectLevel = function() {
 
-	this.closeScreen();
 	this.openScreen(SelectLevelScreen);
 }
 
 // Récupération du monde sélectionné 
 UIManager.prototype.getWorldSelected = function() {
 
-	// Monde sélectionné 
-	uiManager.worldSelected = this.worldSelected;
+	// Créé le level manager et stock le monde sélectionné  
+	levelManager = new LevelManager();
+	levelManager.worldSelected = this.worldSelected
 	uiManager.closeScreen();
-	// Démarrage du level 
+
+	// Affiche l'écran de sélection de level 
 	uiManager.displaySelectLevel();
 }
 
 // Récupération du level sélectionné 
 UIManager.prototype.getLevelSelected = function() {
 
-	// Level sélectionné 
-	uiManager.levelSelected = this.levelSelected;
+	// Stock le level sélectionné 
+	levelManager.levelSelected = this.levelSelected;
 	uiManager.closeScreen();
+	
 	// Démarrage du level 
 	uiManager.startLevel();
 }
@@ -106,7 +106,7 @@ UIManager.prototype.exitLevel = function() {
 UIManager.prototype.startNextLevel = function() {
 
 	gameManager.destroy();
-	this.levelSelected++;
+	levelManager.levelSelected++;
 	gameManager = new GameManager();
 	gameManager.create();
 }
@@ -114,14 +114,14 @@ UIManager.prototype.startNextLevel = function() {
 // Affiche le screen d'aide
 UIManager.prototype.displayHelp = function() {
 
-	gameManager.pause = true;
+	levelManager.pause = true;
 	this.openScreen(HelpScreen);
 }
 
 // Cache le screen d'aide 
 UIManager.prototype.exitHelp = function() {
 
-	gameManager.pause = false;
+	levelManager.pause = false;
 	this.currentScreen.btnReturn.text.destroy();
 	this.closeScreen();
 }
@@ -130,7 +130,6 @@ UIManager.prototype.exitHelp = function() {
 UIManager.prototype.displayWin = function() {
 
 	gameManager.destroy();
-	this.closeScreen();
 	this.openScreen(WinScreen);
 }
 
@@ -138,6 +137,5 @@ UIManager.prototype.displayWin = function() {
 UIManager.prototype.displayLose = function() {
 
 	gameManager.destroy();
-	this.closeScreen();
 	this.openScreen(LoseScreen);
 }

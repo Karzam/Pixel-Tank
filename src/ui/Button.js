@@ -27,7 +27,6 @@ Button.prototype.drawContent = function() {
 
 	// Image
 	if (this.content[0] == "#")  {
-		console.log(this.content);
 		this.image = game.add.sprite(this.x, this.y, this.content.slice(1, this.content.length));
 		this.image.width = this.size;
 		this.image.height = this.size;
@@ -35,8 +34,8 @@ Button.prototype.drawContent = function() {
 	}
 	// Texte 
 	else {
-		this.text = game.add.bitmapText(this.x, this.y, this.font, this.content, this.textSize);
-    	this.text.anchor.setTo(0.5, 0.5);
+		this.displayedText = game.add.bitmapText(this.x, this.y, this.font, this.content, this.textSize);
+    	this.displayedText.anchor.setTo(0.5, 0.5);
 	}
 }
 

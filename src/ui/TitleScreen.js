@@ -39,9 +39,9 @@ TitleScreen.prototype.drawButtons = function() {
 	this.list.push(this.btnCredits);
 	this.btnCredits.events.onInputDown.add(uiManager.displayWebsite, uiManager);
 
-	this.btnSettings = new Button(80, 520, 'medium', '#btnSettings', 'carrier_command', 60);
+	this.btnSettings = new Button(80, 520, 'medium', '#btn_settings', 'carrier_command', 60);
 	this.list.push(this.btnSettings);
 
-	this.btnShop = new Button(720, 520, 'medium', '#btnShop', 'carrier_command', 60);
+	this.btnShop = new Button(720, 520, 'medium', '#btn_shop', 'carrier_command', 60);
 	this.list.push(this.btnShop);
 }

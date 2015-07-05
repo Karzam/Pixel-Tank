@@ -23,18 +23,18 @@ WinScreen.prototype.drawBackground = function() {
 // Boutons
 WinScreen.prototype.drawButtons = function() {
 
-	this.btnRestart = new Button(200, 340, 'small', '#btnRestartLevel', 'carrier_command', 30);
+	this.btnRestart = new Button(250, 340, 'medium', '#btn_restart_level', 'carrier_command', 50);
 	this.list.push(this.btnRestart);
 	this.btnRestart.events.onInputDown.add(uiManager.startLevel, uiManager);
 
-	this.btnSelect = new Button(350, 340, 'small', '#btnRestartSelect', 'carrier_command', 30);
+	this.btnSelect = new Button(400, 340, 'medium', '#btn_return_select', 'carrier_command', 50);
 	this.btnSelect.returnScreen = "SelectLevelScreen";
 	this.list.push(this.btnSelect);
 	this.btnSelect.events.onInputDown.add(uiManager.exitLevel, this.btnSelect);
 
 	// Si le niveau terminé n'est pas le dernier niveau 
 	if (uiManager.levelSelected != 12) {
-		this.btnNext = new Button(500, 340, 'small', '>', 'carrier_command', 30);
+		this.btnNext = new Button(550, 340, 'medium', '>', 'carrier_command', 50);
 		this.list.push(this.btnNext);
 		this.btnNext.events.onInputDown.add(uiManager.startNextLevel, uiManager);
 	}

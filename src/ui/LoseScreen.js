@@ -23,11 +23,11 @@ LoseScreen.prototype.drawBackground = function() {
 // Boutons
 LoseScreen.prototype.drawButtons = function() {
 
-	this.btnRestart = new Button(320, 340, 'medium', '#btnRestartLevel', 'carrier_command', 50);
+	this.btnRestart = new Button(320, 340, 'medium', '#btn_restart_level', 'carrier_command', 50);
 	this.list.push(this.btnRestart);
 	this.btnRestart.events.onInputDown.add(uiManager.startLevel, uiManager);
 
-	this.btnSelect = new Button(480, 340, 'medium', '#btnReturnSelect', 'carrier_command', 50);
+	this.btnSelect = new Button(480, 340, 'medium', '#btn_return_select', 'carrier_command', 50);
 	this.btnSelect.returnScreen = "SelectLevelScreen";
 	this.list.push(this.btnSelect);
 	this.btnSelect.events.onInputDown.add(uiManager.exitLevel, this.btnSelect);

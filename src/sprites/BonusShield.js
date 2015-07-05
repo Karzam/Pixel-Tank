@@ -1,6 +1,6 @@
 BonusShield = function(x, y) {
     
-    Phaser.Sprite.call(this, game, x, y, 'bonusShield');
+    Phaser.Sprite.call(this, game, x, y, 'bonus_shield');
     this.anchor.setTo(0.5, 0.5);
     // Durée 
     this.timer = 400; 

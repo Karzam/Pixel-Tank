@@ -1,6 +1,6 @@
 BonusTimeIdle = function(x, y) {
     
-    Phaser.Sprite.call(this, game, x, y, 'bonusTimeIdle');
+    Phaser.Sprite.call(this, game, x, y, 'bonus_timeidle');
     this.anchor.setTo(0.5, 0.5);
     // Durée 
     this.timer = 400; 

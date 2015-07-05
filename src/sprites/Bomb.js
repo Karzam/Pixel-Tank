@@ -66,6 +66,6 @@ Bomb.prototype.collisionEnemies = function(bomb, enemy) {
     this.kill();
     // Test de victoire 
     if (enemies.length == 0) {
-        gameManager.isWin = true;
+        levelManager.isWin = true;
     }
 }

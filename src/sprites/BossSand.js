@@ -1,6 +1,6 @@
 BossSand = function(x, y) {
 
-    Phaser.Sprite.call(this, game, x, y, 'bossSand_base');
+    Phaser.Sprite.call(this, game, x, y, 'boss_sand_base');
     this.anchor.setTo(0.5, 0.5);
     // Animation de dégats 
     this.animations.add('damage', [1, 2, 3, 4]);
@@ -17,9 +17,9 @@ BossSand = function(x, y) {
     game.add.existing(this);
     enemies.add(this);
     // Ajout des canons
-    this.gun1 = new Gun(this.x - 40, this.y, 'bossSand_gun', -20); 
-    this.gun2 = new Gun(this.x, this.y, 'bossSand_gun', 0); 
-    this.gun3 = new Gun(this.x + 40, this.y, 'bossSand_gun', 20); 
+    this.gun1 = new Gun(this.x - 40, this.y, 'boss_sand_gun', -20); 
+    this.gun2 = new Gun(this.x, this.y, 'boss_sand_gun', 0); 
+    this.gun3 = new Gun(this.x + 40, this.y, 'boss_sand_gun', 20); 
     // Animation de base 
     this.animations.add('static', [0]);
 }

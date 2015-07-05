@@ -35,7 +35,7 @@ SelectLevelScreen.prototype.create = function() {
 // Background 
 SelectLevelScreen.prototype.drawBackground = function() {
 
-	this.background = game.add.sprite(0, 0, 'selectLevel');
+	this.background = game.add.sprite(0, 0, 'select_level');
 	this.list.push(this.background);
 }
 
