@@ -12,7 +12,6 @@ GameManager.prototype.create = function() {
 
     // Initialisation clavier 
     cursor = game.input.keyboard.createCursorKeys();
-    bombKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
     // Construction du level
     levelManager.create();
@@ -29,7 +28,7 @@ GameManager.prototype.update = function() {
 GameManager.prototype.destroy = function() {
 
 	background.destroy();
-	tank1.destroy();
+	tank.destroy();
 	blocs.destroy();
 	bombs.destroy();
 	enemies.destroy();

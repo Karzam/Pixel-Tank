@@ -39,14 +39,14 @@ EnemySniper.prototype.update = function() {
         this.fireBomb();
 
         // Collision avec le player
-        game.physics.arcade.collide(this, tank1); 
+        game.physics.arcade.collide(this, tank); 
     }
 }
 
 // Rotation du canon 
 EnemySniper.prototype.rotate = function() {
 
-    this.gun.angle = Math.atan2(tank1.y - this.y, tank1.x - this.x) / (Math.PI / 180);
+    this.gun.angle = Math.atan2(tank.y - this.y, tank.x - this.x) / (Math.PI / 180);
 }
 
 // Tir de bombes

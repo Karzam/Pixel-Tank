@@ -1,6 +1,6 @@
 Tank = function(sprite, x, y) {
     
-    Phaser.Sprite.call(this, game, x, y, sprite);
+    Phaser.Sprite.call(this, game, x, y, sprite + '_base');
     this.width = 32;
     this.height = 32;
     this.anchor.setTo(0.5, 0.5);
@@ -20,8 +20,11 @@ Tank = function(sprite, x, y) {
     this.bonusShield = false;
     game.physics.enable(this, Phaser.Physics.ARCADE);
     game.add.existing(this);
+    // Ajout du canon
+    this.gun = new TankGun(this.x, this.y, sprite + '_gun', 0); 
     // Animation de base 
     this.animations.add('static', [0]);
+    this.gun.animations.add('static', [0]);
 }
 
 Tank.prototype = Object.create(Phaser.Sprite.prototype);
@@ -77,8 +80,8 @@ Tank.prototype.fireBomb = function() {
     if (this.timerBomb > 0) this.timerBomb--;
 
     // Si timer à 0 et touche de tir appuyée 
-    if (this.timerBomb === 0 && bombKey.isDown) {
-        var bomb = new Bomb(this.x, this.y, this.angle, this.bombSpeed);
+    if (this.timerBomb === 0 && game.input.activePointer.isDown) {
+        var bomb = new Bomb(this.x, this.y, this.gun.angle, this.bombSpeed);
         // Réinitialisation du timer de tir 
         (this.bonusTimerBomb) ? this.timerBomb = 10 : this.timerBomb = 40;
     }
@@ -99,7 +102,8 @@ Tank.prototype.damage = function() {
         var explosion = new Explosion(this.x, this.y);
         explosion.scale.x = 2;
         explosion.scale.y = 2;
-        this.kill();
+        this.gun.destroy();
+        this.destroy();
         levelManager.isLose = true;
     }
 }

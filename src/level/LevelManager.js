@@ -44,11 +44,11 @@ LevelManager.prototype.create = function() {
     bonus = game.add.group();
     bonus.enableBody = true;
 
-	// Affiche le HUD
-	hud = new Hud();
-
 	// Construits les objets du level  
 	tilemap = new Tilemap(this.worldSelected + "_" + this.levelSelected);
+
+	// Affiche le HUD
+	hud = new Hud();
 }
 
 LevelManager.prototype.update = function() {

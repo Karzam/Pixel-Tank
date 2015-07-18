@@ -1,7 +1,7 @@
 Gun = function(x, y, image, angleRange) {
     
     Phaser.Sprite.call(this, game, x, y, image);
-    this.anchor.setTo(0.3281, 0.4844);
+    this.anchor.setTo(0.234, 0.484);
     // Variation de l'angle de tir 
     this.angleRange = angleRange;
     // Animations
@@ -19,6 +19,6 @@ Gun.prototype.update = function() {
 
     if (!gameManager.pause) {
         
-        this.angle = Math.atan2((tank1.y + this.angleRange) - this.y, (tank1.x + this.angleRange) - this.x) / (Math.PI / 180);
+        this.angle = Math.atan2((tank.y + this.angleRange) - this.y, (tank.x + this.angleRange) - this.x) / (Math.PI / 180);
     }
 }

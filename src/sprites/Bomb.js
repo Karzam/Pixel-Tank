@@ -28,7 +28,7 @@ Bomb.prototype.update = function() {
         game.physics.arcade.collide(this, blocs, this.collisionBloc, null, this); 
 
         // Collision avec les tanks
-        game.physics.arcade.collide(this, tank1, this.collisionTank, null, this); 
+        game.physics.arcade.collide(this, tank, this.collisionTank, null, this); 
 
         // Collision avec les ennemis 
         game.physics.arcade.collide(this, enemies, this.collisionEnemies, null, this);
@@ -52,7 +52,7 @@ Bomb.prototype.collisionBloc = function() {
 // Collision avec les tanks 
 Bomb.prototype.collisionTank = function() {
 
-    tank1.damage();
+    tank.damage();
     var explosion = new Explosion(this.x, this.y);
     this.destroy();
 }

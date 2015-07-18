@@ -7,26 +7,14 @@ Tilemap = function(map) {
     		switch(tilemaps[map]['map'][y][x]) {
     			// Blocs 
                 case '#': 
-    				var bloc = blocs.create(x * 32, y * 32, 'bloc_desert_1');
-                    bloc.body.immovable = true;
-                    blocs.enableBody = true;
-                    blocs.physicsBodyType = Phaser.Physics.ARCADE;
-    			break;
-                case '0': 
-                    var bloc = blocs.create(x * 32, y * 32, 'bloc_desert_2');
-                    bloc.body.immovable = true;
-                    blocs.enableBody = true;
-                    blocs.physicsBodyType = Phaser.Physics.ARCADE;
-                break;
-                case '&': 
-                    var bloc = blocs.create(x * 32, y * 32, 'bloc_desert_3');
+    				var bloc = blocs.create(x * 32, y * 32, 'bloc_' + levelManager.worldSelected);
                     bloc.body.immovable = true;
                     blocs.enableBody = true;
                     blocs.physicsBodyType = Phaser.Physics.ARCADE;
                 break;
                 // Tank 1 
                 case 'P': 
-                    tank1 = new Tank('tank_1', x * 32, (y * 32) + 64);
+                    tank = new Tank('tank', x * 32, (y * 32) + 64);
                 break;
                 // Ennemi "Regular" 
                 case 'R':

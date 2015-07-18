@@ -15,14 +15,14 @@ BonusLife.prototype.constructor = BonusLife;
 BonusLife.prototype.update = function() {
 
     // Collision avec les tanks
-    game.physics.arcade.collide(this, tank1, this.collisionTank, null, this); 
+    game.physics.arcade.collide(this, tank, this.collisionTank, null, this); 
 }
 
 // Collision avec les tanks 
 BonusLife.prototype.collisionTank = function() {
 
-    if (tank1.life < 3) {
-        tank1.life ++;
+    if (tank.life < 3) {
+        tank.life ++;
         hud.addLife();
     }
 

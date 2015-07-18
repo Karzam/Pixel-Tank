@@ -37,7 +37,7 @@ EnemyRegular.prototype.update = function() {
         this.fireBomb();
 
         // Collision avec le player
-        game.physics.arcade.collide(this, tank1); 
+        game.physics.arcade.collide(this, tank); 
     }
 }
 

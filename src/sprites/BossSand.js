@@ -16,10 +16,14 @@ BossSand = function(x, y) {
     this.body.immovable = true;
     game.add.existing(this);
     enemies.add(this);
+    // Positions des canons 
+    this.gunsPos = [-40, -20, 0, 20, 40];
     // Ajout des canons
-    this.gun1 = new Gun(this.x - 40, this.y, 'boss_sand_gun', -20); 
-    this.gun2 = new Gun(this.x, this.y, 'boss_sand_gun', 0); 
-    this.gun3 = new Gun(this.x + 40, this.y, 'boss_sand_gun', 20); 
+    this.guns = [];
+    for (var i = 0; i < 5; i++) {
+        this.gun = new Gun(this.x - this.gunsPos[i], this.y, 'boss_sand_gun', this.gunsPos[i]);
+        this.guns.push(this.gun);
+    }
     // Animation de base 
     this.animations.add('static', [0]);
 }
@@ -39,7 +43,7 @@ BossSand.prototype.update = function() {
         this.fireBomb();
 
         // Collision avec le player
-        game.physics.arcade.collide(this, tank1); 
+        game.physics.arcade.collide(this, tank); 
     }
 }
 
@@ -48,23 +52,23 @@ BossSand.prototype.move = function() {
 
     // Vitesse nulle 
     this.body.velocity.setTo(0,0);
-    this.gun1.body.velocity.setTo(0,0);
-    this.gun2.body.velocity.setTo(0,0);
-    this.gun3.body.velocity.setTo(0,0);
+    for (var i = 0; i < 5; i++) {
+        this.guns[i].body.velocity.setTo(0,0);
+    }
 
-    if (tank1.x > this.x && this.x < 430) {
+    if (tank.x > this.x && this.x < 430) {
         this.angle = 0;
         this.body.velocity.x = this.speed;
-        this.gun1.body.velocity.x = this.speed;
-        this.gun2.body.velocity.x = this.speed;
-        this.gun3.body.velocity.x = this.speed;
+        for (var i = 0; i < 5; i++) {
+            this.guns[i].body.velocity.x = this.speed;
+        }
     }
-    else if (tank1.x < this.x && this.x > 200) {
+    else if (tank.x < this.x && this.x > 200) {
         this.angle = 180;
         this.body.velocity.x = -this.speed;
-        this.gun1.body.velocity.x = -this.speed;
-        this.gun2.body.velocity.x = -this.speed;
-        this.gun3.body.velocity.x = -this.speed;
+        for (var i = 0; i < 5; i++) {
+            this.guns[i].body.velocity.x = -this.speed;
+        }
     }
 }
 
@@ -76,9 +80,10 @@ BossSand.prototype.fireBomb = function() {
 
     // Si timer de tir à 0
     if (this.timerBomb === 0 && !gameManager.isLose) {
-        var bomb = new Bomb(this.gun1.x, this.gun1.y, this.gun1.angle, this.bombSpeed);
-        var bomb = new Bomb(this.gun2.x, this.gun2.y, this.gun2.angle, this.bombSpeed);
-        var bomb = new Bomb(this.gun3.x, this.gun3.y, this.gun3.angle, this.bombSpeed);
+        for (var i = 0; i < 5; i++) {
+            this.guns[i].body.velocity.x = this.speed;
+            var bomb = new Bomb(this.guns[i].x, this.guns[i].y, this.guns[i].angle, this.bombSpeed);
+        }
         this.timerBomb = 140;
     }
 }
@@ -90,18 +95,18 @@ BossSand.prototype.damage = function() {
 
     // Animation de dégats
     this.play('damage', 40, false);
-    this.gun1.play('damage', 40, false);
-    this.gun2.play('damage', 40, false);
-    this.gun3.play('damage', 40, false);
+    for (var i = 0; i < 5; i++) {
+            this.guns[i].play('damage', 40, false);
+    }
 
     // Si points de vie à 0, destruction
     if (this.life === 0) {
         var explosion = new Explosion(this.x, this.y);
         explosion.scale.x = 2;
         explosion.scale.y = 2;
-        this.gun1.destroy();
-        this.gun2.destroy();
-        this.gun3.destroy();
+        for (var i = 0; i < 5; i++) {
+            this.guns[i].destroy();
+        }
         this.destroy();
     }
 }

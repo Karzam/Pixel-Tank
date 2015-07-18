@@ -20,7 +20,7 @@ BonusTimeIdle.prototype.update = function() {
     this.activateEffect();
 
     // Collision avec les tanks
-    game.physics.arcade.collide(this, tank1, this.collisionTank, null, this); 
+    game.physics.arcade.collide(this, tank, this.collisionTank, null, this); 
 }
 
 // Collision avec les tanks 

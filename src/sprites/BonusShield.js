@@ -20,7 +20,7 @@ BonusShield.prototype.update = function() {
     this.activateEffect();
 
     // Collision avec les tanks
-    game.physics.arcade.collide(this, tank1, this.collisionTank, null, this); 
+    game.physics.arcade.collide(this, tank, this.collisionTank, null, this); 
 }
 
 // Collision avec les tanks 
@@ -37,16 +37,16 @@ BonusShield.prototype.activateEffect = function() {
     if (this.activate) {
         // Création du sprite du bouclier 
         if (!this.shield) {
-            tank1.bonusShield = true;
-            this.shield = game.add.sprite(tank1.x, tank1.y, 'shield');
+            tank.bonusShield = true;
+            this.shield = game.add.sprite(tank.x, tank.y, 'shield');
             this.shield.anchor.setTo(0.5, 0.5);
         }
-        this.shield.x = tank1.x;
-        this.shield.y = tank1.y;
+        this.shield.x = tank.x;
+        this.shield.y = tank.y;
         this.timer--;
         // Destruction
         if (this.timer === 0) {
-            tank1.bonusShield = false;
+            tank.bonusShield = false;
             this.shield.destroy();
             this.destroy();
         }

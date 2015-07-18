@@ -32,10 +32,9 @@ function preload() {
     game.load.image('life', 'assets/sprites/ui/life.png');
     game.load.image('txt_life', 'assets/sprites/ui/txtLife.png');
     game.load.image('background_desert', 'assets/sprites/backgrounds/background_desert.png');
-    game.load.image('bloc_desert_1', 'assets/sprites/level/bloc_desert_1.png'); 
-    game.load.image('bloc_desert_2', 'assets/sprites/level/bloc_desert_2.png'); 
-    game.load.image('bloc_desert_3', 'assets/sprites/level/bloc_desert_3.png'); 
-    game.load.spritesheet('tank_1', 'assets/sprites/level/tank_1.png', 32, 32, 5);
+    game.load.image('bloc_desert', 'assets/sprites/level/bloc_desert.png'); 
+    game.load.spritesheet('tank_base', 'assets/sprites/level/tank_base.png', 32, 32, 5);
+    game.load.spritesheet('tank_gun', 'assets/sprites/level/tank_gun.png', 32, 32, 5);
     game.load.spritesheet('enemy_regular_base', 'assets/sprites/level/enemy_regular_base.png', 32, 32, 5);
     game.load.spritesheet('enemy_regular_gun', 'assets/sprites/level/enemy_regular_gun.png', 32, 32, 5);
     game.load.spritesheet('enemy_triple_base', 'assets/sprites/level/enemy_triple_base.png', 32, 32, 5);

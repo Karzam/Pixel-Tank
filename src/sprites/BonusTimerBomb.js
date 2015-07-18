@@ -20,7 +20,7 @@ BonusTimerBomb.prototype.update = function() {
     this.activateEffect();
 
     // Collision avec les tanks
-    game.physics.arcade.collide(this, tank1, this.collisionTank, null, this); 
+    game.physics.arcade.collide(this, tank, this.collisionTank, null, this); 
 }
 
 // Collision avec les tanks 
@@ -35,11 +35,11 @@ BonusTimerBomb.prototype.collisionTank = function() {
 BonusTimerBomb.prototype.activateEffect = function() {
 
     if (this.activate) {
-        tank1.bonusTimerBomb = true;
+        tank.bonusTimerBomb = true;
         this.timer--;
         // Destruction
         if (this.timer === 0) {
-            tank1.bonusTimerBomb = false;
+            tank.bonusTimerBomb = false;
             this.destroy();
         }
     }
