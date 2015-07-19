@@ -45,6 +45,7 @@ function preload() {
     game.load.spritesheet('boss_sand_gun', 'assets/sprites/level/boss_sand_gun.png', 32, 32, 5);
     game.load.image('bomb', 'assets/sprites/level/bomb.png');
     game.load.spritesheet('explosion', 'assets/sprites/level/explosion.png', 42, 42, 7);
+    game.load.image('smoke', 'assets/sprites/effects/smoke.png');
     game.load.image('bonus_timerbomb', 'assets/sprites/level/bonus_timerbomb.png');
     game.load.image('bonus_speed', 'assets/sprites/level/bonus_speed.png');
     game.load.image('bonus_life', 'assets/sprites/level/bonus_life.png');

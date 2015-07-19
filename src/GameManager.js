@@ -10,6 +10,9 @@ GameManager.prototype.create = function() {
 	// Moteur physique
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
+    // Effets de rendu 
+    effectManager = new EffectManager();
+
     // Initialisation clavier 
     cursor = game.input.keyboard.createCursorKeys();
 
@@ -22,6 +25,9 @@ GameManager.prototype.update = function() {
 
     // Evènements de level gagné / perdu 
 	levelManager.update();
+
+    // Effets de rendu 
+    effectManager.update();
 }
 
 // Fin de la partie 

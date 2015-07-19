@@ -100,8 +100,6 @@ Tank.prototype.damage = function() {
     // Si points de vie à 0, destruction
     if (this.life === 0) {
         var explosion = new Explosion(this.x, this.y);
-        explosion.scale.x = 2;
-        explosion.scale.y = 2;
         this.gun.destroy();
         this.destroy();
         levelManager.isLose = true;

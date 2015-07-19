@@ -11,6 +11,9 @@ Bomb = function(x, y, direction, speed) {
     game.physics.enable(this, Phaser.Physics.ARCADE);
     game.add.existing(this);
     bombs.add(this);
+    // Effet de rendu 
+    this.effect = new Smoke(this);
+    this.effect.create();
 }
  
 Bomb.prototype = Object.create(Phaser.Sprite.prototype);
@@ -45,16 +48,14 @@ Bomb.prototype.move = function() {
 // Collision avec les blocs 
 Bomb.prototype.collisionBloc = function() {
     
-    var explosion = new Explosion(this.x, this.y);
-    this.kill();
+    var explosion = new Explosion(this.x, this.y, this);
 }
 
 // Collision avec les tanks 
 Bomb.prototype.collisionTank = function() {
 
     tank.damage();
-    var explosion = new Explosion(this.x, this.y);
-    this.destroy();
+    var explosion = new Explosion(this.x, this.y, this);
 }
 
 // Collision avec les ennemis 
@@ -62,8 +63,7 @@ Bomb.prototype.collisionEnemies = function(bomb, enemy) {
 
     // Retirement d'un point de vie 
     enemy.damage();
-    var explosion = new Explosion(this.x, this.y);
-    this.kill();
+    var explosion = new Explosion(this.x, this.y, this);
     // Test de victoire 
     if (enemies.length == 0) {
         levelManager.isWin = true;

@@ -35,6 +35,7 @@ LevelManager.prototype.create = function() {
 
     // Liste des bombes 
     bombs = game.add.group();
+    bombs.enableBody = true;
 
     // Liste des ennemis 
     enemies = game.add.group();
