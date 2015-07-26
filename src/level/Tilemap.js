@@ -30,7 +30,14 @@ Tilemap = function(map) {
                 break;
                 // Boss
                 case 'B':
-                    var bossSand = new BossSand(x * 32, (y * 32)); 
+                    switch(levelManager.worldSelected) {
+                        case 'desert': 
+                            var bossSand = new BossSand(x * 32, (y * 32)); 
+                        break;
+                        case 'snow': 
+                            var bossSnow = new BossSnow(x * 32, (y * 32));
+                        break;
+                    }
                 break;
     		}
     	}

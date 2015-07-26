@@ -1,35 +1,24 @@
-/* global Phaser */
-EnemyRegular = function(x, y) {
+Enemy = function() {
 
-    Phaser.Sprite.call(this, game, x, y, 'enemy_regular_base');
     this.width = 32;
     this.height = 32;
     this.anchor.setTo(0.5, 0.5);
     // Animation de dégats 
     this.animations.add('damage', [1, 2, 3, 4]);
-    // Cadence de tir 
-    this.bombDelay = 100;
-    this.timer = 0;
-    // Vitesse des bombes 
-    this.bombSpeed = 400;
-    // Points de vie 
-    this.life = 2;
     game.physics.enable(this, Phaser.Physics.ARCADE);
     this.body.immovable = true;
     game.add.existing(this);
-    // Ajout du canon
-    this.gun = new Gun(this.x, this.y, 'enemy_regular_gun', 0); 
     enemies.add(this);
     // Animations de base 
     this.animations.add('static', [0]);
     this.gun.animations.add('static', [0]);
 }
 
-EnemyRegular.prototype = Object.create(Phaser.Sprite.prototype);
-EnemyRegular.prototype.constructor = EnemyRegular;
+Enemy.prototype = Object.create(Phaser.Sprite.prototype);
+Enemy.prototype.constructor = Enemy;
 
 // Méthodes appelées dans la boucle de jeu 
-EnemyRegular.prototype.update = function() {
+Enemy.prototype.update = function() {
 
     if (!gameManager.pause) { 
 
@@ -42,7 +31,7 @@ EnemyRegular.prototype.update = function() {
 }
 
 // Tir de bombes
-EnemyRegular.prototype.fireBomb = function() {
+Enemy.prototype.fireBomb = function() {
 
     // Décrémentation du timer de tir 
     this.timer++;
@@ -55,7 +44,7 @@ EnemyRegular.prototype.fireBomb = function() {
 }
 
 // Animation de dégats et retirement des points de vie  
-EnemyRegular.prototype.damage = function() {
+Enemy.prototype.damage = function() {
 
     this.life --;
 
@@ -75,7 +64,7 @@ EnemyRegular.prototype.damage = function() {
 }
 
 // Apparition d'un bonus lors de la destruction
-EnemyRegular.prototype.createBonus = function() {
+Enemy.prototype.createBonus = function() {
 
     var rd = Math.random();
 
