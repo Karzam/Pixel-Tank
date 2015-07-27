@@ -5,7 +5,7 @@ BossSnow = function(x, y) {
     // Animation de dégats 
     this.animations.add('damage', [1, 2, 3, 4]);
     // Vitesse de déplacement 
-    this.speed = 80;
+    this.speed = 100;
     // Cadence de tir 
     this.timerBomb = 100;
     // Vitesse des bombes 
@@ -31,7 +31,7 @@ BossSnow.prototype.update = function() {
     if (!gameManager.pause) {
 
         // Déplacement 
-        //this.move();
+        this.move();
 
         // Tir de bombes 
         //this.fireBomb();
@@ -44,48 +44,33 @@ BossSnow.prototype.update = function() {
 // Déplacement 
 BossSnow.prototype.move = function() {
 
-    // Vitesse nulle 
-    this.body.velocity.setTo(0,0);
-
-    for (var i = 0; i < 5; i++) {
-        this.guns[i].body.velocity.setTo(0,0);
+    if (this.x < 200 && this.y < 100) {
+        this.angle = 45;
+        this.body.velocity.x = this.speed / 1.4;
+        this.body.velocity.y = this.speed / 1.4;
+        this.gun.body.velocity.x = this.speed / 1.4;
+        this.gun.body.velocity.y = this.speed / 1.4;
     }
-
-    if (this.x < 700 && this.y > 500) {
-        this.angle = 0;
-        this.body.velocity.x = this.speed;
-        for (var i = 0; i < 5; i++) {
-            this.guns[i].body.velocity.x = this.speed;
-            this.guns[i].x = this.x + this.gunsPos[i];
-            this.guns[i].y = this.y;
-        }
-    }
-    else if (this.x > 700 && this.y > 100) {
+    if (this.x > 600 && this.y > 500) {
         this.angle = 270;
+        this.body.velocity.x = 0;
         this.body.velocity.y = -this.speed;
-        for (var i = 0; i < 5; i++) {
-            this.guns[i].body.velocity.y = -this.speed;
-            this.guns[i].x = this.x;
-            this.guns[i].y = this.y + this.gunsPos[i];
-        }
+        this.gun.body.velocity.x = 0;
+        this.gun.body.velocity.y = -this.speed;
     }
-    else if (this.x > 100 && this.y < 100) {
-        this.angle = 180;
-        this.body.velocity.x = -this.speed;
-        for (var i = 0; i < 5; i++) {
-            this.guns[i].body.velocity.x = -this.speed;
-            this.guns[i].x = this.x + this.gunsPos[i];
-            this.guns[i].y = this.y;
-        }
+    if (this.x > 600 && this.y < 100) {
+        this.angle = 135;
+        this.body.velocity.x = -this.speed / 1.4;
+        this.body.velocity.y = this.speed / 1.4;
+        this.gun.body.velocity.x = -this.speed / 1.4;
+        this.gun.body.velocity.y = this.speed / 1.4;
     }
-    else if (this.x < 100 && this.y < 500) {
-        this.angle = 90;
-        this.body.velocity.y = this.speed;
-        for (var i = 0; i < 5; i++) {
-            this.guns[i].body.velocity.y = this.speed;
-            this.guns[i].x = this.x;
-            this.guns[i].y = this.y + this.gunsPos[i];
-        }
+    if (this.x < 200 && this.y > 500) {
+        this.angle = 270;
+        this.body.velocity.x = 0;
+        this.body.velocity.y = -this.speed;
+        this.gun.body.velocity.x = 0;
+        this.gun.body.velocity.y = -this.speed;
     }
 }
 
