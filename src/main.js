@@ -49,6 +49,8 @@ function preload() {
     game.load.spritesheet('boss_sand_gun', 'assets/sprites/level/boss_sand_gun.png', 32, 32, 5);
     game.load.spritesheet('boss_snow_base', 'assets/sprites/level/boss_snow_base.png', 65, 60, 5);
     game.load.spritesheet('boss_snow_gun', 'assets/sprites/level/boss_snow_gun.png', 60, 60, 5);
+    game.load.spritesheet('boss_forest_base', 'assets/sprites/level/boss_forest_base.png', 140, 48, 5);
+    game.load.spritesheet('boss_forest_gun', 'assets/sprites/level/boss_forest_gun.png', 76, 35, 5);
     game.load.image('bomb', 'assets/sprites/level/bomb.png');
     game.load.spritesheet('explosion', 'assets/sprites/level/explosion.png', 42, 42, 7);
     game.load.image('smoke', 'assets/sprites/effects/smoke.png');

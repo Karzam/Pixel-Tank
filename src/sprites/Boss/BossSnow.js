@@ -9,7 +9,7 @@ BossSnow = function(x, y) {
     // Cadence de tir 
     this.timerBomb = 100;
     // Vitesse des bombes 
-    this.bombSpeed = 400;
+    this.bombSpeed = 300;
     // Points de vie 
     this.life = 20;
     game.physics.enable(this, Phaser.Physics.ARCADE);
@@ -34,7 +34,7 @@ BossSnow.prototype.update = function() {
         this.move();
 
         // Tir de bombes 
-        //this.fireBomb();
+        this.fireBomb();
 
         // Collision avec le player
         game.physics.arcade.collide(this, tank); 
@@ -82,10 +82,7 @@ BossSnow.prototype.fireBomb = function() {
 
     // Si timer de tir à 0
     if (this.timerBomb === 0 && !gameManager.isLose) {
-        for (var i = 0; i < 5; i++) {
-            this.guns[i].body.velocity.x = this.speed;
-            var bomb = new Bomb(this.guns[i].x, this.guns[i].y, this.guns[i].angle, this.bombSpeed);
-        }
+        var bomb = new BossSnowBomb(this.gun.x, this.gun.y, this.gun.angle, this.bombSpeed);
         this.timerBomb = 140;
     }
 }
@@ -97,9 +94,7 @@ BossSnow.prototype.damage = function() {
 
     // Animation de dégats
     this.play('damage', 40, false);
-    for (var i = 0; i < 5; i++) {
-            this.guns[i].play('damage', 40, false);
-    }
+    this.gun.play('damage', 40, false);
 
     // Si points de vie à 0, destruction
     if (this.life === 0) {

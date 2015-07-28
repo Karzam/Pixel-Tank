@@ -40,15 +40,15 @@ SelectWorldScreen.prototype.drawButtons = function() {
 	this.list.push(this.btnDesert);
 	this.btnDesert.events.onInputDown.add(uiManager.getWorldSelected, this.btnDesert);
 
-	this.btnSnow = new Button(400, 310, 'large', 'Snow', 'carrier_command', 20);
-	this.btnSnow.worldSelected = "snow";
-	this.list.push(this.btnSnow);
-	this.btnSnow.events.onInputDown.add(uiManager.getWorldSelected, this.btnSnow);
-
-	this.btnForest = new Button(400, 400, 'large', 'Forest', 'carrier_command', 20);
+	this.btnForest = new Button(400, 310, 'large', 'Forest', 'carrier_command', 20);
 	this.btnForest.worldSelected = "forest";
 	this.list.push(this.btnForest);
 	this.btnForest.events.onInputDown.add(uiManager.getWorldSelected, this.btnForest);
+
+	this.btnSnow = new Button(400, 400, 'large', 'Snow', 'carrier_command', 20);
+	this.btnSnow.worldSelected = "snow";
+	this.list.push(this.btnSnow);
+	this.btnSnow.events.onInputDown.add(uiManager.getWorldSelected, this.btnSnow);
 
 	this.btnIsland = new Button(400, 490, 'large', 'Island', 'carrier_command', 20);
 	this.btnIsland.worldSelected = "island";

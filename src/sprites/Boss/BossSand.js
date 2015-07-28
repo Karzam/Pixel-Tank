@@ -40,7 +40,7 @@ BossSand.prototype.update = function() {
         this.move();
 
         // Tir de bombes 
-        //this.fireBomb();
+        this.fireBomb();
 
         // Collision avec le player
         game.physics.arcade.collide(this, tank); 
