@@ -34,6 +34,9 @@ Tilemap = function(map) {
                         case 'desert': 
                             var bossSand = new BossSand(x * 32, (y * 32)); 
                         break;
+                        case 'forest': 
+                            var bossForest = new BossForest(x * 32, (y * 32)); 
+                        break;
                         case 'snow': 
                             var bossSnow = new BossSnow(x * 32, (y * 32));
                         break;

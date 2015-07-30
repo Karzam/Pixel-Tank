@@ -101,9 +101,7 @@ BossSnow.prototype.damage = function() {
         var explosion = new Explosion(this.x, this.y);
         explosion.scale.x = 2;
         explosion.scale.y = 2;
-        for (var i = 0; i < 5; i++) {
-            this.guns[i].destroy();
-        }
+        this.gun.destroy();
         this.destroy();
     }
 }
