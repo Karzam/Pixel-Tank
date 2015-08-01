@@ -4,12 +4,17 @@ BossForestBomb = function(x, y, direction, speed) {
     this.anchor.setTo(0.5, 0.5);
     // Direction du sprite
     this.angle = direction;
-    // Direction de déplacement 
-    this.direction = this.angle * (Math.PI / 180);
-    // Vitesse de déplacement 
-    this.speed = speed;
-    // Etat de rebond 
-    this.hasBounced = false;
+    // Direction initiale de déplacement 
+    this.initialDirection = this.angle * (Math.PI / 180);
+    // Direction finale de déplacement 
+    this.finalDirection = 0;
+    // Arrêt avant effet
+    this.stopCooldown = 100;  
+    this.stopTimer = 0;
+    // Vitesse de déplacement de départ  
+    this.initialSpeed = speed;
+    // Vitesse de déplacement finale 
+    this.finalSpeed = speed * 6;
     game.physics.enable(this, Phaser.Physics.ARCADE);
     game.add.existing(this);
     bombs.add(this);
@@ -43,8 +48,21 @@ BossForestBomb.prototype.update = function() {
 // Déplacement
 BossForestBomb.prototype.move = function() {
 
-   this.body.velocity.x = Math.cos(this.direction) * this.speed;
-   this.body.velocity.y = Math.sin(this.direction) * this.speed;
+    this.stopTimer++;
+
+    if (this.stopTimer >= this.stopCooldown) {
+        if (this.finalDirection == 0) {
+            this.finalDirection = Math.atan2(tank.y - this.y, tank.x - this.x);
+            this.angle = Math.atan2(tank.y - this.y, tank.x - this.x) / (Math.PI / 180);
+        }
+        
+        this.body.velocity.x = Math.cos(this.finalDirection) * this.finalSpeed;
+        this.body.velocity.y = Math.sin(this.finalDirection) * this.finalSpeed;
+    }
+    else {
+        this.body.velocity.x = Math.cos(this.initialDirection) * this.initialSpeed;
+        this.body.velocity.y = Math.sin(this.initialDirection) * this.initialSpeed;
+    }
 }
 
 // Collision avec les blocs 

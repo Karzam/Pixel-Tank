@@ -40,6 +40,7 @@ Tank.prototype.update = function() {
 
         // Collision avec les blocs
         game.physics.arcade.collide(this, blocs); 
+        game.physics.arcade.collide(this, rivers); 
 
         // Tir de bombes 
         this.fireBomb();

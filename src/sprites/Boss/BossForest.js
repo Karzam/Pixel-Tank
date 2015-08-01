@@ -9,7 +9,7 @@ BossForest = function(x, y) {
     // Cadence de tir 
     this.timerBomb = 100;
     // Vitesse des bombes 
-    this.bombSpeed = 400;
+    this.bombSpeed = 80;
     // Points de vie 
     this.life = 20;
     game.physics.enable(this, Phaser.Physics.ARCADE);
@@ -17,10 +17,10 @@ BossForest = function(x, y) {
     game.add.existing(this);
     enemies.add(this);
     // Positions des canons 
-    this.gunsPos = [-24, 24];
+    this.gunsPos = [-30, 0, 30];
     // Ajout des canons
     this.guns = [];
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < 3; i++) {
         this.gun = new Gun(this.x + this.gunsPos[i], this.y, 'boss_forest_gun', this.gunsPos[i]);
         this.guns.push(this.gun);
     }
@@ -52,16 +52,14 @@ BossForest.prototype.move = function() {
 
     if (this.x < 200) {
         this.body.velocity.x = this.speed;
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 3; i++) {
             this.guns[i].body.velocity.x = this.speed;
-            this.guns[i].x = this.x + this.gunsPos[i];
         }
     }
     else if (this.x > 600) {
         this.body.velocity.x = -this.speed;
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 3; i++) {
             this.guns[i].body.velocity.x = -this.speed;
-            this.guns[i].x = this.x + this.gunsPos[i];
         }
     }
 }
@@ -74,10 +72,10 @@ BossForest.prototype.fireBomb = function() {
 
     // Si timer de tir à 0
     if (this.timerBomb === 0 && !gameManager.isLose) {
-        for (var i = 0; i < 2; i++) {
-            this.guns[i].body.velocity.x = this.speed;
+        for (var i = 0; i < 3; i++) {
             var bomb = new BossForestBomb(this.guns[i].x, this.guns[i].y, this.guns[i].angle, this.bombSpeed);
         }
+        this.timerBomb = 100;
     }
 }
 
@@ -95,7 +93,7 @@ BossForest.prototype.damage = function() {
         var explosion = new Explosion(this.x, this.y);
         explosion.scale.x = 2;
         explosion.scale.y = 2;
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 3; i++) {
             this.guns[i].destroy();
         }
         this.destroy();

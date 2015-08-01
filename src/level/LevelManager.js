@@ -32,6 +32,7 @@ LevelManager.prototype.create = function() {
 	// Liste des blocs 
     blocs = game.add.group();
     blocs.enableBody = true;
+    blocs.physicsBodyType = Phaser.Physics.ARCADE;
 
     // Liste des bombes 
     bombs = game.add.group();

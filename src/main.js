@@ -10,8 +10,10 @@
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'window', { preload: preload, create: create, update: update });
 
 
-// Chargement des assets 
+// Chargement du jeu  
 function preload() {
+
+    // Chargement des assets 
     game.load.image('title', 'assets/sprites/ui/title.jpg');
     game.load.bitmapFont('carrier_command', 'assets/fonts/carrier_command.png', 'assets/fonts/carrier_command.xml');
     game.load.bitmapFont('carrier_command_black', 'assets/fonts/carrier_command_black.png', 'assets/fonts/carrier_command_black.xml');
@@ -50,7 +52,7 @@ function preload() {
     game.load.spritesheet('boss_snow_base', 'assets/sprites/level/boss_snow_base.png', 65, 60, 5);
     game.load.spritesheet('boss_snow_gun', 'assets/sprites/level/boss_snow_gun.png', 60, 60, 5);
     game.load.spritesheet('boss_forest_base', 'assets/sprites/level/boss_forest_base.png', 140, 48, 5);
-    game.load.spritesheet('boss_forest_gun', 'assets/sprites/level/boss_forest_gun.png', 76, 35, 5);
+    game.load.spritesheet('boss_forest_gun', 'assets/sprites/level/boss_forest_gun.png', 46, 21, 5);
     game.load.image('bomb', 'assets/sprites/level/bomb.png');
     game.load.spritesheet('explosion', 'assets/sprites/level/explosion.png', 42, 42, 7);
     game.load.image('smoke', 'assets/sprites/effects/smoke.png');

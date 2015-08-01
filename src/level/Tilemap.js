@@ -9,10 +9,8 @@ Tilemap = function(map) {
                 case '#': 
     				var bloc = blocs.create(x * 32, y * 32, 'bloc_' + levelManager.worldSelected);
                     bloc.body.immovable = true;
-                    blocs.enableBody = true;
-                    blocs.physicsBodyType = Phaser.Physics.ARCADE;
                 break;
-                // Tank 1 
+                // Tank 
                 case 'P': 
                     tank = new Tank('tank', x * 32, (y * 32));
                 break;
