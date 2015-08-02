@@ -22,7 +22,7 @@ Bomb.prototype.constructor = Bomb;
 // Méthodes appelées dans la boucle de jeu 
 Bomb.prototype.update = function() {
 
-    if (!gameManager.pause) {
+    if (!levelManager.pause) {
 
         // Déplacement 
         this.move();

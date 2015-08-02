@@ -30,7 +30,7 @@ EnemyRegular.prototype.constructor = EnemyRegular;
 // Méthodes appelées dans la boucle de jeu 
 EnemyRegular.prototype.update = function() {
 
-    if (!gameManager.pause) { 
+    if (!levelManager.pause) { 
 
         // Tir de bombes 
         this.fireBomb();

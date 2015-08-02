@@ -17,7 +17,7 @@ TankGun.prototype.constructor = TankGun;
 // Méthodes appelées dans la boucle de jeu 
 TankGun.prototype.update = function() {
 
-    if (!gameManager.pause) {
+    if (!levelManager.pause) {
         
         this.x = tank.x + this.getPosX();
         this.y = tank.y + this.getPosY();

@@ -10,7 +10,16 @@ UIManager.prototype.constructor = UIManager;
 
 UIManager.prototype.create = function() {
 
+	// Animations d'interface 
+    animationManager = new AnimationManager();
+
 	this.openScreen(TitleScreen);
+}
+
+// Update 
+UIManager.prototype.update = function() {
+
+	animationManager.update();
 }
 
 // Affichage de screen
@@ -43,7 +52,7 @@ UIManager.prototype.displayTitle = function() {
 // Website
 UIManager.prototype.displayWebsite = function() {
 
-	header = location.href="http://www.baptistemenard.com";
+	this.btnReturn.events.onInputDown.add(location.href="http://www.baptistemenard.com", this);
 }
 
 // Multiplayer 
@@ -122,7 +131,6 @@ UIManager.prototype.displayHelp = function() {
 UIManager.prototype.exitHelp = function() {
 
 	levelManager.pause = false;
-	this.currentScreen.btnReturn.text.destroy();
 	this.closeScreen();
 }
 

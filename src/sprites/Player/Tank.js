@@ -33,14 +33,13 @@ Tank.prototype.constructor = Tank;
 // Méthodes appelées dans la boucle de jeu 
 Tank.prototype.update = function() {
 
-    if (!gameManager.pause) {
+    if (!levelManager.pause) {
 
         // Déplacement 
         this.move();
 
         // Collision avec les blocs
         game.physics.arcade.collide(this, blocs); 
-        game.physics.arcade.collide(this, rivers); 
 
         // Tir de bombes 
         this.fireBomb();

@@ -34,7 +34,7 @@ BossForest.prototype.constructor = BossForest;
 // Méthodes appelées dans la boucle de jeu 
 BossForest.prototype.update = function() {
 
-    if (!gameManager.pause) {
+    if (!levelManager.pause) {
 
         // Déplacement 
         this.move();

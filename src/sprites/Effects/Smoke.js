@@ -21,14 +21,16 @@ Smoke.prototype.create = function() {
 // Rafraîchissement 
 Smoke.prototype.update = function() {
 
-    // Création des particules 
-    this.createParticles();
+	if (!levelManager.pause) {
+		// Création des particules 
+	    this.createParticles();
 
-    // Rendu des particules 
-    this.renderParticles();
+	    // Rendu des particules 
+	    this.renderParticles();
 
-    // Destruction des particules 
-    this.destroyParticles();
+	    // Destruction des particules 
+	    this.destroyParticles();
+	}
 }
 
 // Création des particules 

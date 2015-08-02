@@ -9,6 +9,8 @@ TitleScreen.prototype.constructor = TitleScreen;
 TitleScreen.prototype.create = function() {
 	// Background 
 	this.drawBackground();
+	// Titre 
+	this.drawTitle();
 	// Boutons de menus
 	this.drawButtons();
 }
@@ -16,8 +18,16 @@ TitleScreen.prototype.create = function() {
 // Background 
 TitleScreen.prototype.drawBackground = function() {
 
-	this.background = game.add.sprite(0, 0, 'title');
+	this.background = game.add.sprite(0, 0, 'background');
 	this.list.push(this.background);
+}
+
+// Titre 
+TitleScreen.prototype.drawTitle = function() {
+
+	this.title = game.add.sprite(70, 120, 'title');
+	var anim = new Float(this.title);
+	this.list.push(this.title);
 }
 
 // Boutons de menus

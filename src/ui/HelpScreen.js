@@ -9,6 +9,10 @@ HelpScreen.prototype.constructor = HelpScreen;
 HelpScreen.prototype.create = function() {
 	// Background 
 	this.drawBackground();
+	// Titre 
+	this.drawTitle();
+	// Texte 
+	this.drawText();
 	// Bouton de retour
 	this.drawButtonExit();
 }
@@ -16,8 +20,23 @@ HelpScreen.prototype.create = function() {
 // Background 
 HelpScreen.prototype.drawBackground = function() {
 
-	this.background = game.add.sprite(0, 0, 'help');
+	this.background = game.add.sprite(0, 0, 'background');
 	this.list.push(this.background);
+}
+
+// Titre 
+HelpScreen.prototype.drawTitle = function() {
+
+	this.title = game.add.sprite(300, 60, 'help');
+	var anim = new Float(this.title);
+	this.list.push(this.title);
+}
+
+// Texte 
+HelpScreen.prototype.drawText = function() {
+
+	this.title = game.add.sprite(40, 140, 'txtHelp');
+	this.list.push(this.title);
 }
 
 // Bouton de retour 

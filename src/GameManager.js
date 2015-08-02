@@ -10,14 +10,15 @@ GameManager.prototype.create = function() {
 	// Moteur physique
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    // Effets de rendu 
-    effectManager = new EffectManager();
-
     // Initialisation clavier 
     cursor = game.input.keyboard.createCursorKeys();
 
     // Construction du level
     levelManager.create();
+
+    // Viseur sur la souris 
+    sight = game.add.sprite(game.input.mousePointer.x, game.input.mousePointer.y, 'sight');
+    sight.anchor.set(0.5, 0.5);
 }
 
 // Rafraîchissement 
@@ -26,8 +27,8 @@ GameManager.prototype.update = function() {
     // Evènements de level gagné / perdu 
 	levelManager.update();
 
-    // Effets de rendu 
-    effectManager.update();
+    sight.x = game.input.mousePointer.x;
+    sight.y = game.input.mousePointer.y;
 }
 
 // Fin de la partie 

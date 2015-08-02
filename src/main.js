@@ -7,32 +7,38 @@
 // ------------------------------------------------------------------------------------------------
 
 // Initialisation de Phaser 
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'window', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 608, Phaser.CANVAS, 'window', { preload: preload, create: create, update: update });
 
 
 // Chargement du jeu  
 function preload() {
 
     // Chargement des assets 
-    game.load.image('title', 'assets/sprites/ui/title.jpg');
+    game.load.image('background', 'assets/sprites/ui/background.jpg');
+    game.load.image('title', 'assets/sprites/ui/title.png');
     game.load.bitmapFont('carrier_command', 'assets/fonts/carrier_command.png', 'assets/fonts/carrier_command.xml');
     game.load.bitmapFont('carrier_command_black', 'assets/fonts/carrier_command_black.png', 'assets/fonts/carrier_command_black.xml');
-    game.load.image('select_world', 'assets/sprites/ui/select_world.jpg');
-    game.load.image('select_level', 'assets/sprites/ui/select_level.jpg');
-    game.load.image('win', 'assets/sprites/ui/win.jpg');
-    game.load.image('lose', 'assets/sprites/ui/lose.jpg');
-    game.load.image('help', 'assets/sprites/ui/help.jpg');
-    game.load.image('multiplayer', 'assets/sprites/ui/multiplayer.jpg');
+    game.load.image('select_world', 'assets/sprites/ui/select_world.png');
+    game.load.image('select_level', 'assets/sprites/ui/select_level.png');
+    game.load.image('win', 'assets/sprites/ui/win.png');
+    game.load.image('lose', 'assets/sprites/ui/lose.png');
+    game.load.image('help', 'assets/sprites/ui/help.png');
+    game.load.image('txtHelp', 'assets/sprites/ui/txtHelp.png');
+    game.load.image('multiplayer', 'assets/sprites/ui/multiplayer.png');
     game.load.image('btn_settings', 'assets/sprites/ui/btn_settings.png');
     game.load.image('btn_shop', 'assets/sprites/ui/btn_shop.png');
     game.load.spritesheet('bg_button_large', 'assets/sprites/ui/bg_button_large.png', 241, 75, 2);
     game.load.spritesheet('bg_button_medium', 'assets/sprites/ui/bg_button_medium.png', 102, 102, 2);
     game.load.spritesheet('bg_button_small', 'assets/sprites/ui/bg_button_small.png', 62, 62, 2);
+    game.load.spritesheet('btn_desert', 'assets/sprites/ui/btn_desert.png', 280, 480);
+    game.load.spritesheet('btn_forest', 'assets/sprites/ui/btn_forest.png', 280, 480);
+    game.load.spritesheet('btn_snow', 'assets/sprites/ui/btn_snow.png', 280, 480);
     game.load.image('btn_return_select', 'assets/sprites/ui/btn_returnSelect.png');
     game.load.image('btn_help', 'assets/sprites/ui/btn_help.png');
     game.load.image('btn_restart_level', 'assets/sprites/ui/btn_restartLevel.png');
     game.load.image('life', 'assets/sprites/ui/life.png');
     game.load.image('txt_life', 'assets/sprites/ui/txtLife.png');
+    game.load.image('sight', 'assets/sprites/ui/sight.png');
     game.load.image('background_desert', 'assets/sprites/backgrounds/background_desert.png');
     game.load.image('background_forest', 'assets/sprites/backgrounds/background_forest.png');
     game.load.image('background_snow', 'assets/sprites/backgrounds/background_snow.png');
@@ -74,6 +80,11 @@ function create() {
 
 // Rafraîchissement
 function update() {
+
+    if (uiManager != null) {
+
+        uiManager.update();
+    }
 
     if (gameManager != null) {
 

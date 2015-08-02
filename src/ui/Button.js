@@ -43,10 +43,14 @@ Button.prototype.drawContent = function() {
 Button.prototype.onMouseOver = function() {
 
 	this.play('over', 0, true);
+	this.scale.x = 1.1;
+	this.scale.y = 1.1;
 }
 
 // Bouton out
 Button.prototype.onMouseOut = function() {
 
 	this.play('static', 0, true);
+	this.scale.x = 1;
+	this.scale.y = 1;
 }

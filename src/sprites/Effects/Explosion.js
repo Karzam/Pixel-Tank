@@ -13,7 +13,7 @@ Explosion.prototype.constructor = Explosion;
 // Méthodes appelées dans la boucle de jeu 
 Explosion.prototype.update = function() {
 
-	if (!gameManager.pause) {
+	if (!levelManager.pause) {
 
 	    // Animation 
 	    this.animations.play('explose', 40, false, true);

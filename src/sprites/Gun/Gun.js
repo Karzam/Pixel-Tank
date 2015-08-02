@@ -17,7 +17,7 @@ Gun.prototype.constructor = Gun;
 // Méthodes appelées dans la boucle de jeu 
 Gun.prototype.update = function() {
 
-    if (!gameManager.pause) {
+    if (!levelManager.pause) {
         
         this.angle = Math.atan2((tank.y + this.angleRange) - this.y, (tank.x + this.angleRange) - this.x) / (Math.PI / 180);
     }

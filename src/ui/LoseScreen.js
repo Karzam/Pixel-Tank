@@ -9,6 +9,8 @@ LoseScreen.prototype.constructor = LoseScreen;
 LoseScreen.prototype.create = function() {
 	// Background 
 	this.drawBackground();
+	// Titre 
+	this.drawTitle();
 	// Boutons 
 	this.drawButtons();
 }
@@ -16,8 +18,16 @@ LoseScreen.prototype.create = function() {
 // Background 
 LoseScreen.prototype.drawBackground = function() {
 
-	this.background = game.add.sprite(0, 0, 'lose');
+	this.background = game.add.sprite(0, 0, 'background');
 	this.list.push(this.background);
+}
+
+// Titre 
+LoseScreen.prototype.drawTitle = function() {
+
+	this.title = game.add.sprite(120, 120, 'lose');
+	var anim = new Float(this.title);
+	this.list.push(this.title);
 }
 
 // Boutons

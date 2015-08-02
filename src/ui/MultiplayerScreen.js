@@ -9,6 +9,8 @@ MultiplayerScreen.prototype.constructor = MultiplayerScreen;
 MultiplayerScreen.prototype.create = function() {
 	// Background 
 	this.drawBackground();
+	// Titre 
+	this.drawTitle();
 	// Bouton de retour
 	this.drawButtonReturn();
 }
@@ -16,8 +18,16 @@ MultiplayerScreen.prototype.create = function() {
 // Background 
 MultiplayerScreen.prototype.drawBackground = function() {
 
-	this.background = game.add.sprite(0, 0, 'multiplayer');
+	this.background = game.add.sprite(0, 0, 'background');
 	this.list.push(this.background);
+}
+
+// Titre 
+MultiplayerScreen.prototype.drawTitle = function() {
+
+	this.title = game.add.sprite(120, 60, 'multiplayer');
+	var anim = new Float(this.title);
+	this.list.push(this.title);
 }
 
 // Bouton de retour 

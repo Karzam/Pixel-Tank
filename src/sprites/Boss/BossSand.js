@@ -34,7 +34,7 @@ BossSand.prototype.constructor = BossSand;
 // Méthodes appelées dans la boucle de jeu 
 BossSand.prototype.update = function() {
 
-    if (!gameManager.pause) {
+    if (!levelManager.pause) {
 
         // Déplacement 
         this.move();

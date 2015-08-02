@@ -27,7 +27,7 @@ BossSnowBomb.prototype.constructor = BossSnowBomb;
 // Méthodes appelées dans la boucle de jeu 
 BossSnowBomb.prototype.update = function() {
 
-    if (!gameManager.pause) {
+    if (!levelManager.pause) {
 
         // Déplacement 
         this.move();

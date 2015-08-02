@@ -26,6 +26,8 @@ SelectLevelScreen.prototype.constructor = SelectLevelScreen;
 SelectLevelScreen.prototype.create = function() {
 	// Background 
 	this.drawBackground();
+	// Titre 
+	this.drawTitle();
 	// Bouton de retour
 	this.drawButtonReturn();
 	// Boutons de levels
@@ -35,8 +37,16 @@ SelectLevelScreen.prototype.create = function() {
 // Background 
 SelectLevelScreen.prototype.drawBackground = function() {
 
-	this.background = game.add.sprite(0, 0, 'select_level');
+	this.background = game.add.sprite(0, 0, 'background');
 	this.list.push(this.background);
+}
+
+// Titre 
+SelectLevelScreen.prototype.drawTitle = function() {
+
+	this.title = game.add.sprite(160, 60, 'select_level');
+	var anim = new Float(this.title);
+	this.list.push(this.title);
 }
 
 // Bouton de retour 

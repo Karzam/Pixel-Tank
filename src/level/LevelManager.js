@@ -51,12 +51,21 @@ LevelManager.prototype.create = function() {
 
 	// Affiche le HUD
 	hud = new Hud();
+
+	// Effets de rendu 
+    effectManager = new EffectManager();
 }
 
 LevelManager.prototype.update = function() {
 
+	// Victoire 
 	this.win();
+
+	// Défaite 
 	this.lose();
+
+	// Effets de rendu 
+    effectManager.update();
 }
 
 // Victoire 

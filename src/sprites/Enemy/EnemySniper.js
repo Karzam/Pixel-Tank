@@ -30,7 +30,7 @@ EnemySniper.prototype.constructor = EnemySniper;
 // Méthodes appelées dans la boucle de jeu 
 EnemySniper.prototype.update = function() {
 
-    if (!gameManager.pause) {
+    if (!levelManager.pause) {
         
         // Rotation 
         this.rotate();

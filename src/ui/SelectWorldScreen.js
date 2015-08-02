@@ -11,6 +11,8 @@ SelectWorldScreen.prototype.constructor = SelectWorldScreen;
 SelectWorldScreen.prototype.create = function() {
 	// Background 
 	this.drawBackground();
+	// Titre 
+	this.drawTitle();
 	// Bouton de retour
 	this.drawButtonReturn();
 	// Boutons de levels
@@ -20,8 +22,16 @@ SelectWorldScreen.prototype.create = function() {
 // Background 
 SelectWorldScreen.prototype.drawBackground = function() {
 
-	this.background = game.add.sprite(0, 0, 'select_world');
+	this.background = game.add.sprite(0, 0, 'background');
 	this.list.push(this.background);
+}
+
+// Titre 
+SelectWorldScreen.prototype.drawTitle = function() {
+
+	this.title = game.add.sprite(160, 60, 'select_world');
+	var anim = new Float(this.title);
+	this.list.push(this.title);
 }
 
 // Bouton de retour 
@@ -35,23 +45,18 @@ SelectWorldScreen.prototype.drawButtonReturn = function() {
 // Boutons de mondes 
 SelectWorldScreen.prototype.drawButtons = function() {
 
-	this.btnDesert = new Button(400, 220, 'large', 'Desert', 'carrier_command', 20);
+	this.btnDesert = game.add.sprite(20, 200, 'btn_desert');
 	this.btnDesert.worldSelected = "desert";
 	this.list.push(this.btnDesert);
 	this.btnDesert.events.onInputDown.add(uiManager.getWorldSelected, this.btnDesert);
 
-	this.btnForest = new Button(400, 310, 'large', 'Forest', 'carrier_command', 20);
+	this.btnForest = game.add.sprite(200, 200, 'btn_desert');
 	this.btnForest.worldSelected = "forest";
 	this.list.push(this.btnForest);
 	this.btnForest.events.onInputDown.add(uiManager.getWorldSelected, this.btnForest);
 
-	this.btnSnow = new Button(400, 400, 'large', 'Snow', 'carrier_command', 20);
+	this.btnSnow = game.add.sprite(400, 200, 'btn_desert');
 	this.btnSnow.worldSelected = "snow";
 	this.list.push(this.btnSnow);
 	this.btnSnow.events.onInputDown.add(uiManager.getWorldSelected, this.btnSnow);
-
-	this.btnIsland = new Button(400, 490, 'large', 'Island', 'carrier_command', 20);
-	this.btnIsland.worldSelected = "island";
-	this.list.push(this.btnIsland);
-	//this.btnIsland.events.onInputDown.add(uiManager.getWorldSelected, this.btnIsland);
 }

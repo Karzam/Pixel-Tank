@@ -32,7 +32,7 @@ EnemyTriple.prototype.constructor = EnemyTriple;
 // Méthodes appelées dans la boucle de jeu 
 EnemyTriple.prototype.update = function() {
 
-    if (!gameManager.pause) {
+    if (!levelManager.pause) {
 
         // Rotation 
         this.rotate();

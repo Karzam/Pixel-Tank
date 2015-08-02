@@ -9,6 +9,8 @@ WinScreen.prototype.constructor = WinScreen;
 WinScreen.prototype.create = function() {
 	// Background 
 	this.drawBackground();
+	// Titre 
+	this.drawTitle();
 	// Boutons 
 	this.drawButtons();
 }
@@ -16,8 +18,16 @@ WinScreen.prototype.create = function() {
 // Background 
 WinScreen.prototype.drawBackground = function() {
 
-	this.background = game.add.sprite(0, 0, 'win');
+	this.background = game.add.sprite(0, 0, 'background');
 	this.list.push(this.background);
+}
+
+// Titre 
+WinScreen.prototype.drawTitle = function() {
+
+	this.title = game.add.sprite(160, 120, 'win');
+	var anim = new Float(this.title);
+	this.list.push(this.title);
 }
 
 // Boutons
