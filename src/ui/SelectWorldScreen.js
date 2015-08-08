@@ -45,17 +45,17 @@ SelectWorldScreen.prototype.drawButtonReturn = function() {
 // Boutons de mondes 
 SelectWorldScreen.prototype.drawButtons = function() {
 
-	this.btnDesert = game.add.sprite(20, 200, 'btn_desert');
+	this.btnDesert = new Button(140, 340, 'desert', '', 'carrier_command', 30);
 	this.btnDesert.worldSelected = "desert";
 	this.list.push(this.btnDesert);
 	this.btnDesert.events.onInputDown.add(uiManager.getWorldSelected, this.btnDesert);
 
-	this.btnForest = game.add.sprite(200, 200, 'btn_desert');
+	this.btnForest = new Button(400, 340, 'forest', '', 'carrier_command', 30);
 	this.btnForest.worldSelected = "forest";
 	this.list.push(this.btnForest);
 	this.btnForest.events.onInputDown.add(uiManager.getWorldSelected, this.btnForest);
 
-	this.btnSnow = game.add.sprite(400, 200, 'btn_desert');
+	this.btnSnow = new Button(660, 340, 'snow', '', 'carrier_command', 30);
 	this.btnSnow.worldSelected = "snow";
 	this.list.push(this.btnSnow);
 	this.btnSnow.events.onInputDown.add(uiManager.getWorldSelected, this.btnSnow);

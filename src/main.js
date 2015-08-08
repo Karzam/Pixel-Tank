@@ -28,11 +28,11 @@ function preload() {
     game.load.image('btn_settings', 'assets/sprites/ui/btn_settings.png');
     game.load.image('btn_shop', 'assets/sprites/ui/btn_shop.png');
     game.load.spritesheet('bg_button_large', 'assets/sprites/ui/bg_button_large.png', 241, 75, 2);
-    game.load.spritesheet('bg_button_medium', 'assets/sprites/ui/bg_button_medium.png', 102, 102, 2);
+    game.load.spritesheet('bg_button_medium', 'assets/sprites/ui/bg_button_medium.png', 102, 102, 3);
     game.load.spritesheet('bg_button_small', 'assets/sprites/ui/bg_button_small.png', 62, 62, 2);
-    game.load.spritesheet('btn_desert', 'assets/sprites/ui/btn_desert.png', 280, 480);
-    game.load.spritesheet('btn_forest', 'assets/sprites/ui/btn_forest.png', 280, 480);
-    game.load.spritesheet('btn_snow', 'assets/sprites/ui/btn_snow.png', 280, 480);
+    game.load.spritesheet('bg_button_desert', 'assets/sprites/ui/bg_button_desert.png', 236, 270);
+    game.load.spritesheet('bg_button_forest', 'assets/sprites/ui/bg_button_forest.png', 236, 270);
+    game.load.spritesheet('bg_button_snow', 'assets/sprites/ui/bg_button_snow.png', 236, 270);
     game.load.image('btn_return_select', 'assets/sprites/ui/btn_returnSelect.png');
     game.load.image('btn_help', 'assets/sprites/ui/btn_help.png');
     game.load.image('btn_restart_level', 'assets/sprites/ui/btn_restartLevel.png');
