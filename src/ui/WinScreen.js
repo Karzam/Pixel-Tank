@@ -43,7 +43,7 @@ WinScreen.prototype.drawButtons = function() {
 	this.btnSelect.events.onInputDown.add(uiManager.exitLevel, this.btnSelect);
 
 	// Si le niveau terminé n'est pas le dernier niveau 
-	if (uiManager.levelSelected != 12) {
+	if (levelManager.levelSelected != 12) {
 		this.btnNext = new Button(550, 340, 'medium', '>', 'carrier_command', 50);
 		this.list.push(this.btnNext);
 		this.btnNext.events.onInputDown.add(uiManager.startNextLevel, uiManager);

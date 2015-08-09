@@ -139,6 +139,37 @@ UIManager.prototype.displayWin = function() {
 
 	gameManager.destroy();
 	this.openScreen(WinScreen);
+
+	// Sauvegarde 
+	var save = new Save();
+
+	switch (levelManager.worldSelected) {
+		case "desert": 
+			if (parseInt(save.getItem(save.desertLevelsUnlocked)) + 1 == levelManager.levelSelected) {
+				save.setItem(save.desertLevelsUnlocked, parseInt(save.getItem(save.desertLevelsUnlocked)) + 1);
+				if (levelManager.levelSelected == 12) save.setItem(save.forestLevelsUnlocked, 0); 
+			}
+			else if (save.getItem(save.desertLevelsUnlocked) == null) {
+				save.setItem(save.desertLevelsUnlocked, 1);
+			}
+		break;
+		case "forest": 
+			if (parseInt(save.getItem(save.forestLevelsUnlocked)) + 1 == levelManager.levelSelected) {
+				save.setItem(save.forestLevelsUnlocked, parseInt(save.getItem(save.forestLevelsUnlocked)) + 1);
+				if (levelManager.levelSelected == 12) save.setItem(save.snowLevelsUnlocked, 0); 
+			}
+			else if (save.getItem(save.forestLevelsUnlocked) == null) {
+				save.setItem(save.forestLevelsUnlocked, 1);
+			}
+		break;
+		case "snow": 
+			if (parseInt(save.getItem(save.snowLevelsUnlocked)) + 1 == levelManager.levelSelected) {
+				save.setItem(save.snowLevelsUnlocked, parseInt(save.getItem(save.snowLevelsUnlocked)) + 1);
+			}
+			else if (save.getItem(save.snowLevelsUnlocked) == null) {
+				save.setItem(save.snowLevelsUnlocked, 1);
+			}
+	}
 }
 
 // Losescreen

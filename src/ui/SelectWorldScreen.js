@@ -45,18 +45,28 @@ SelectWorldScreen.prototype.drawButtonReturn = function() {
 // Boutons de mondes 
 SelectWorldScreen.prototype.drawButtons = function() {
 
+	var save = new Save();
+
 	this.btnDesert = new Button(140, 340, 'desert', '', 'carrier_command', 30);
 	this.btnDesert.worldSelected = "desert";
 	this.list.push(this.btnDesert);
 	this.btnDesert.events.onInputDown.add(uiManager.getWorldSelected, this.btnDesert);
 
 	this.btnForest = new Button(400, 340, 'forest', '', 'carrier_command', 30);
+	this.btnForest.lock();
 	this.btnForest.worldSelected = "forest";
 	this.list.push(this.btnForest);
-	this.btnForest.events.onInputDown.add(uiManager.getWorldSelected, this.btnForest);
+	if (save.getItem(save.forestLevelsUnlocked) != null) {
+		this.btnForest.unlock();
+		this.btnForest.events.onInputDown.add(uiManager.getWorldSelected, this.btnForest);
+	}
 
 	this.btnSnow = new Button(660, 340, 'snow', '', 'carrier_command', 30);
+	this.btnSnow.lock();
 	this.btnSnow.worldSelected = "snow";
 	this.list.push(this.btnSnow);
-	this.btnSnow.events.onInputDown.add(uiManager.getWorldSelected, this.btnSnow);
+	if (save.getItem(save.snowLevelsUnlocked) != null) {
+		this.btnSnow.unlock();
+		this.btnSnow.events.onInputDown.add(uiManager.getWorldSelected, this.btnSnow);
+	}
 }

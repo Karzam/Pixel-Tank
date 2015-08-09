@@ -60,10 +60,31 @@ SelectLevelScreen.prototype.drawButtonReturn = function() {
 // Boutons de levels 
 SelectLevelScreen.prototype.drawButtons = function() {
 
+	var save = new Save();
+
 	for (var i = 1; i <= 12; i++) {
 		this.btnLevel = new Button(this.btnPositions[i.toString()][0], this.btnPositions[i.toString()][1], 'medium', i.toString(), 'carrier_command', 30);
+		this.btnLevel.lock();
 		this.btnLevel.levelSelected = i;
 		this.list.push(this.btnLevel);
-		this.btnLevel.events.onInputDown.add(uiManager.getLevelSelected, this.btnLevel);
+		switch(levelManager.worldSelected) {
+			case "desert": 
+				if (i - 1 <= parseInt(save.getItem(save.desertLevelsUnlocked)) || i == 1) {
+					this.btnLevel.unlock();
+					this.btnLevel.events.onInputDown.add(uiManager.getLevelSelected, this.btnLevel);
+				}
+			break;
+			case "forest": 
+				if (i - 1 <= parseInt(save.getItem(save.forestLevelsUnlocked))) {
+					this.btnLevel.unlock();
+					this.btnLevel.events.onInputDown.add(uiManager.getLevelSelected, this.btnLevel);
+				}
+			break;
+			case "snow": 
+				if (i - 1 <= parseInt(save.getItem(save.snowLevelsUnlocked))) {
+					this.btnLevel.unlock();
+					this.btnLevel.events.onInputDown.add(uiManager.getLevelSelected, this.btnLevel);
+				}
+		}
 	}
 }

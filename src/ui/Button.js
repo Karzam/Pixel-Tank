@@ -8,8 +8,9 @@ Button = function(x, y, bg, content, font, size) {
 	this.textSize = size;
 	this.content = content;
 	// Animations 
-	this.animations.add('over', [1]);
+	this.animations.add('lock', [2]); 
 	this.animations.add('static', [0]); 
+	this.animations.add('over', [1]);
 	this.size = size;
 	// Input 
 	this.inputEnabled = true;
@@ -39,18 +40,39 @@ Button.prototype.drawContent = function() {
 	}
 }
 
+// Bouton bloqué 
+Button.prototype.lock = function() {
+
+	this.play('lock');
+
+	if (this.content != null) {
+		this.displayedText.visible = false;
+	}
+}
+
+// Bouton débloqué 
+Button.prototype.unlock = function() {
+
+	this.play('static');
+	this.displayedText.visible = true;
+}
+
 // Bouton over 
 Button.prototype.onMouseOver = function() {
 
-	this.play('over', 0, true);
-	this.scale.x = 1.1;
-	this.scale.y = 1.1;
+	if (this.frame != 2) {
+		this.play('over', 0, true);
+		this.scale.x = 1.1;
+		this.scale.y = 1.1;
+	}
 }
 
 // Bouton out
 Button.prototype.onMouseOut = function() {
 
-	this.play('static', 0, true);
-	this.scale.x = 1;
-	this.scale.y = 1;
+	if (this.frame != 2) {
+		this.play('static', 0, true);
+		this.scale.x = 1;
+		this.scale.y = 1;
+	}
 }
