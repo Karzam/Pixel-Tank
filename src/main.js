@@ -35,6 +35,7 @@ function preload() {
     game.load.spritesheet('bg_button_snow', 'assets/sprites/ui/bg_button_snow.png', 236, 270, 3);
     game.load.image('btn_return_select', 'assets/sprites/ui/btn_returnSelect.png');
     game.load.image('btn_help', 'assets/sprites/ui/btn_help.png');
+    game.load.image('popup', 'assets/sprites/ui/popup.png');
     game.load.image('btn_restart_level', 'assets/sprites/ui/btn_restartLevel.png');
     game.load.image('life', 'assets/sprites/ui/life.png');
     game.load.image('txt_life', 'assets/sprites/ui/txtLife.png');

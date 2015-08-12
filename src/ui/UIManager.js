@@ -13,6 +13,9 @@ UIManager.prototype.create = function() {
 	// Animations d'interface 
     animationManager = new AnimationManager();
 
+    // Achievements
+    achievementManager = new AchievementsManager();
+
 	this.openScreen(TitleScreen);
 }
 
@@ -20,6 +23,8 @@ UIManager.prototype.create = function() {
 UIManager.prototype.update = function() {
 
 	animationManager.update();
+
+	achievementManager.update();
 }
 
 // Affichage de screen
